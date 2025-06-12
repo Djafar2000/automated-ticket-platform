@@ -17,9 +17,6 @@ class TicketBot:
             print(f"Navigating to {ticket_url} for event: {event_name}")
             self.driver.get(ticket_url)
             
-            # --- NEW STEP: Handle the Cookie Consent Pop-up ---
-            # We wait up to 10 seconds for the "Accept all" button to be clickable
-            # and then we click it. Its ID on Google is "L2AGLb".
             try:
                 accept_button = WebDriverWait(self.driver, 10).until(
                     EC.element_to_be_clickable((By.ID, "L2AGLb"))
@@ -27,10 +24,10 @@ class TicketBot:
                 accept_button.click()
                 print("Clicked 'Accept all' on the cookie pop-up.")
             except Exception as cookie_error:
-                # If the pop-up doesn't appear (e.g., on a second run), we just log it and continue.
+               
                 print(f"Cookie pop-up not found or could not be clicked: {cookie_error}")
 
-            # --- The rest of the code is the same ---
+            
 
             # 1. Search for the event
             search_box = WebDriverWait(self.driver, 10).until(
