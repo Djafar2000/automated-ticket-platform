@@ -1,0 +1,9 @@
+# /requirements.txt
+Flask-Cors
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-JWT-Extended
+selenium
+bcrypt
+python-dotenv

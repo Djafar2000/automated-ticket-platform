@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Ticket Bot</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Ticket Bot Dashboard</h1>
+            <button id="logout-button">Logout</button>
+        </div>
+        <div id="bot-controls">
+            <h2>Start a New Bot Session</h2>
+            <form id="bot-form">
+                <input type="text" id="event-name" placeholder="Enter Event Name" required>
+                <button type="submit">Start Bot</button>
+            </form>
+            <div id="bot-status" class="message"></div>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
