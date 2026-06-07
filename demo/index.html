@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automated Ticket Purchasing Platform Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-wrap">
+        <div class="brand-mark"></div>
+        <div>
+          <div class="brand">TicketFlow</div>
+          <div class="brand-sub">Assessment Build Demo</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <button class="nav-link active" data-view="login">Login</button>
+        <button class="nav-link" data-view="dashboard">Dashboard</button>
+        <button class="nav-link" data-view="admin">Admin</button>
+      </nav>
+      <div class="side-note">
+        Working prototype focus:
+        <strong>user setup, purchase session, monitoring, and results</strong>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section id="view-login" class="view active">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Assignment 3 Build Demo</p>
+            <h1>Automated Ticket Purchasing Platform</h1>
+            <p class="lead">A browser-based prototype showing monitored ticket-purchase support for legitimate users.</p>
+            <div class="hero-badges">
+              <span class="hero-badge">Ethical automation</span>
+              <span class="hero-badge">Live session tracking</span>
+              <span class="hero-badge">Admin visibility</span>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="orb orb-one"></div>
+            <div class="orb orb-two"></div>
+            <div class="mini-panel">
+              <span class="mini-label">Prototype flow</span>
+              <strong>Register -> Preferences -> Session -> Result</strong>
+            </div>
+            <div class="mini-stats">
+              <div>
+                <span>Views</span>
+                <strong>3</strong>
+              </div>
+              <div>
+                <span>Core flow</span>
+                <strong>End-to-end</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="card">
+            <h2>Create account</h2>
+            <div class="field">
+              <label>Username</label>
+              <input id="register-username" type="text" placeholder="djafar">
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <input id="register-password" type="password" placeholder="demo123">
+            </div>
+            <button id="register-btn" class="btn primary">Register</button>
+            <p id="register-msg" class="message"></p>
+          </div>
+
+          <div class="card">
+            <h2>Log in</h2>
+            <div class="field">
+              <label>Username</label>
+              <input id="login-username" type="text" placeholder="djafar">
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <input id="login-password" type="password" placeholder="demo123">
+            </div>
+            <button id="login-btn" class="btn primary">Log In</button>
+            <p id="login-msg" class="message"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-dashboard" class="view">
+        <div class="hero hero-tight">
+          <div class="hero-copy">
+            <p class="eyebrow">User Dashboard</p>
+            <h1 id="welcome-name">Welcome</h1>
+            <p class="lead">Configure preferences, run a session, and review the result.</p>
+          </div>
+          <button id="logout-btn" class="btn secondary">Log Out</button>
+        </div>
+
+        <div class="stats">
+          <div class="stat-card">
+            <span class="stat-label">Current user</span>
+            <strong id="stat-user">-</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Last session</span>
+            <strong id="stat-session">None</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Last result</span>
+            <strong id="stat-result">Pending</strong>
+          </div>
+        </div>
+
+        <div class="split split-wide">
+          <div class="card">
+            <div class="section-head">
+              <h2>Ticket Preferences</h2>
+              <span class="section-tag">User Setup</span>
+            </div>
+            <div class="field">
+              <label>Event name</label>
+              <input id="pref-event" type="text" placeholder="Champions League Final">
+            </div>
+            <div class="field-grid">
+              <div class="field">
+                <label>Seat type</label>
+                <select id="pref-seat">
+                  <option>Standard</option>
+                  <option>VIP</option>
+                  <option>Best Available</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Quantity</label>
+                <select id="pref-quantity">
+                  <option>1</option>
+                  <option selected>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label>Budget cap</label>
+              <input id="pref-budget" type="number" placeholder="180">
+            </div>
+            <div class="field">
+              <label>Accessibility</label>
+              <label class="toggle-row">
+                <input id="pref-accessible" type="checkbox">
+                <span>I need disabled / accessible ticket options</span>
+              </label>
+            </div>
+            <div class="actions">
+              <button id="save-pref-btn" class="btn secondary">Save Preferences</button>
+              <button id="search-google-btn" class="btn tertiary">Search Tickets on Google</button>
+              <button id="start-session-btn" class="btn primary">Start Purchase Session</button>
+            </div>
+            <p id="pref-msg" class="message"></p>
+
+            <div class="discovery-box">
+              <div class="section-head section-head-compact">
+                <h3>Find Real Tickets</h3>
+                <span class="section-tag">Live Search</span>
+              </div>
+              <p class="discovery-copy">Use your saved ticket request to jump straight to major ticket search platforms.</p>
+              <div class="platform-grid">
+                <button id="search-ticketmaster-btn" class="platform-btn">Ticketmaster</button>
+                <button id="search-stubhub-btn" class="platform-btn">StubHub</button>
+                <button id="search-seatgeek-btn" class="platform-btn">SeatGeek</button>
+                <button id="search-all-btn" class="platform-btn platform-btn-strong">Search All</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-head">
+              <h2>Live Session Status</h2>
+              <span class="section-tag">Monitored Flow</span>
+            </div>
+            <div id="result-banner" class="result-banner result-pending">
+              <span class="result-kicker">Latest Outcome</span>
+              <strong id="result-banner-title">No completed session yet</strong>
+              <p id="result-banner-copy">Start a purchase session to see the final ticket result clearly highlighted here.</p>
+            </div>
+            <div class="status-box">
+              <span class="status-label">Current stage</span>
+              <strong id="session-stage">No active session</strong>
+            </div>
+            <ol id="timeline" class="timeline">
+              <li>Waiting for session start</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-head">
+            <h2>Transaction History</h2>
+            <span class="section-tag">User Results</span>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Event</th>
+                <th>Seat</th>
+                <th>Quantity</th>
+                <th>Status</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody id="transaction-body">
+              <tr><td colspan="6" class="empty">No transactions yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="view-admin" class="view">
+        <div class="hero hero-tight">
+          <div class="hero-copy">
+            <p class="eyebrow">Administrative View</p>
+            <h1>Monitoring Dashboard</h1>
+            <p class="lead">Review sessions, alerts, and transaction outcomes across the platform.</p>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat-card">
+            <span class="stat-label">Registered users</span>
+            <strong id="admin-users">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Sessions</span>
+            <strong id="admin-sessions">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Alerts</span>
+            <strong id="admin-alerts">0</strong>
+          </div>
+        </div>
+
+        <div class="split split-wide">
+          <div class="card">
+            <div class="section-head">
+              <h2>Recent Sessions</h2>
+              <span class="section-tag">Oversight</span>
+            </div>
+            <ul id="session-list" class="admin-list">
+              <li class="empty">No sessions yet.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="section-head">
+              <h2>Alerts</h2>
+              <span class="section-tag">Monitoring</span>
+            </div>
+            <ul id="alert-list" class="admin-list">
+              <li class="empty">No alerts yet.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-head">
+            <h2>Recent Transactions</h2>
+            <span class="section-tag">Platform Activity</span>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Event</th>
+                <th>Status</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody id="admin-transaction-body">
+              <tr><td colspan="4" class="empty">No transactions yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
