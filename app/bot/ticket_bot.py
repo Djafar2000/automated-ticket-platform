@@ -24,10 +24,10 @@ class TicketBot:
                 accept_button.click()
                 print("Clicked 'Accept all' on the cookie pop-up.")
             except Exception as cookie_error:
-                
+               
                 print(f"Cookie pop-up not found or could not be clicked: {cookie_error}")
 
-           
+            
 
             # 1. Search for the event
             search_box = WebDriverWait(self.driver, 10).until(
