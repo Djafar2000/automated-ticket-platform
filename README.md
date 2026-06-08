@@ -33,7 +33,7 @@ It supports:
 ## Submission support files
 
 - `USER_GUIDE.md` — step-by-step marker instructions
-- `DEMO_RECORDING_PLAN.md` — suggested 5-minute demo walkthrough
+
 
 ## Notes
 
